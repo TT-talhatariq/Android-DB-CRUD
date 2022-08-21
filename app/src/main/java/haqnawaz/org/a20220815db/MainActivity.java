@@ -1,3 +1,7 @@
+/**
+ * author: Talha Tariq
+ * version: 2.1
+ */
 package haqnawaz.org.a20220815db;
 
 import androidx.appcompat.app.AppCompatActivity;
