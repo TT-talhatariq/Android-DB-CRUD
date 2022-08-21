@@ -79,25 +79,14 @@ public class MainActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean result ;
                 DBHelper dbHelper = new DBHelper(MainActivity.this);
-                if(!editRollNumber.getText().toString().isEmpty()){
-                    result =   dbHelper.deleteStudent(Integer.parseInt(editRollNumber.getText().toString()));
-                    if(result){
-                        editName.setText("");
-                        editRollNumber.setText("");
-                        resultText.setText("Record Deleted");
-                    }
-                    else{
-                        resultText.setText("No Record Found");
-                    }
+                try {
+                    dbHelper.deleteStudent(Integer.parseInt(editRollNumber.getText().toString()));
                 }
-                else{
-                    resultText.setText("Please Enter Correct Roll Number");
+                catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
     }
 }
